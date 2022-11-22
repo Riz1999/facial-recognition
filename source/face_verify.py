@@ -104,6 +104,7 @@ while True:
                     flag = True
                 else:
                     print('>face is NOT a Match (%.3f > %.3f)' %(score, thresh))
+                    flag = True
     except ValueError:
         raise ValueError
     cv2.imshow('frame', frame)
