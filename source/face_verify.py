@@ -6,6 +6,7 @@ from PIL import Image
 from numpy import asarray
 from mtcnn.mtcnn import MTCNN
 from scipy.spatial.distance import cosine
+from sklearn.metrics import classification_report
 from keras_vggface.vggface import VGGFace
 from keras_vggface.utils import preprocess_input
 import sys
@@ -65,6 +66,8 @@ class FaceVerify(object):
         # perform prediction
         yhat = model.predict(samples)
         model.compile(optimizer='adam',loss='categorical_crossentropy', metrics=['accuracy'])
+        class_report=classification_report(yhat,samples)
+    `   print(f"[INFO] classifaction report is  \n {class_report}")
         accuracy = model.evaluate(samples, yhat)
         print("[INFO] The Loss and accuracy is",accuracy)
         return yhat
