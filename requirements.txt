@@ -1,0 +1,6 @@
+tensorflow
+numpy
+mtcnn
+keras_vggface
+keras_applications
+pip-chill
